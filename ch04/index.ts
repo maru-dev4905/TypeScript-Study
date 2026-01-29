@@ -44,3 +44,21 @@ function fn(x: string, y: string, z: string){
 // 위 함수에서 x, y, z는 매개변수라고 하고
 
 fn('용감한 쿠키', '딸기맛 쿠키', '마법사맛 쿠키') // => 용쿠, 딸쿠, 마쿠는 인수/인자라고 부른다.
+
+// 1.2 선택적 매개변수
+// 자바스크립트에서 함수 매개변수가 제공되지 않으면 함수 내부의 인수값은 undefined으로 기본값이 설정된다는 것을 떠올려보자.
+// 때로는 함수 매개변수를 제공할 필요가 없을 때 있고, undefined 값을 위해 의도적으로 사용할 수도 있다.
+// 타입스크립트가 이러한 선택적 매개변수에 인수를 제공하지 못하는 경우, 타입 오류를 보고하지 않았으면 할 때도 있다.
+// 타입스크립트에서는 선택적 객체 타입 속성과 유사하게 타입 애너테이션 : 앞에 ?를 추가해 매개변수가 선택적이라고 표시한다.
+// 선택적 매개변수에는 항상 | undefined가 유니언 타입으로 추가되어 있다.
+
+function announceSong(song: string, singer?: string){
+  console.log("song: ", song);
+
+  if(singer){
+    console.log("singer: ", singer);
+  }
+}
+announceSong("RE:WIND"); //OK
+announceSong("ROCKDOWN", undefined); //OK
+announceSong("겨울봄 ", "KIDDING"); //OK
