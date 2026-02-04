@@ -84,4 +84,4 @@ hasBoth.method(); //OK
 interface OptionalReadonlyFunctions {
   optionalProperty?: () => string;
   optionalMethod?(): string;
-}
+} 
